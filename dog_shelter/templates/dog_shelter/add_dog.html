@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Список животных</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ dog_form }}
+        </table>
+        <input type="submit" value="Send">
+    </form>
+{% endblock %}

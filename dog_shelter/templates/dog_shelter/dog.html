@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% csrf_token %}
+    <h2>Список животных</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>кличка</th>
+                <th>Вес</th>
+                <th>Порода</th>
+                <th>Дата прибытия в приют</th>
+            </tr>
+        </thead>
+
+        {% for dog in dogs %}
+            <tr>
+                <td>
+                    {{ dog.name }}
+                </td>
+                <td>
+                   {{ dog.egs }}
+                </td>
+                <td>
+                    {{ dog.breed }}
+                </td>
+                <td>
+                    {{ dog.entry_date }}
+                </td>
+                <td>
+                    <a href="{% url 'dog:update' pk=dog.pk %}">
+                        <button type="button" class="btn btn-primary btn-sm">Редактировать</button>
+                    </a>
+                    <a href="{% url 'dog:delete' pk=dog.pk %}">
+                        <button type="button" class="btn btn-primary btn-sm">Удалить</button>
+                    </a>
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    <a href="{% url 'dog:create' %}">
+        <button type="button" class="btn btn-primary btn-sm">Добавить животное</button>
+    </a>
+{% endblock %}
