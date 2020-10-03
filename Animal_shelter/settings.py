@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dog_shelter',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

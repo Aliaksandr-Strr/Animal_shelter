@@ -14,3 +14,6 @@ class Dog(models.Model):
     egs = models.FloatField()
     breed = models.CharField(max_length=50)
     entry_date = models.DateField(validators=[date_control])
+
+    def __str__(self):
+        return self.name
